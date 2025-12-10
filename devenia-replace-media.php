@@ -3,7 +3,7 @@
  * Plugin Name: Devenia Replace Media
  * Plugin URI: https://devenia.com/plugins/replace-media/
  * Description: Replace media files while keeping the same URL. Works in Media Library, Elementor gallery editor, and anywhere WordPress media is used. Preserves captions, alt text, and all metadata. Includes automatic cache busting.
- * Version: 1.6
+ * Version: 1.7
  * Requires at least: 5.0
  * Tested up to: 6.9
  * Requires PHP: 7.4
@@ -177,10 +177,17 @@ function devenia_replace_media_page() {
 
 // Do the actual replacement
 function devenia_do_replace($attachment_id) {
-    if (empty($_FILES['replacement_file']['tmp_name'])) {
+    // Verify nonce (also checked in devenia_replace_media_page, but required here for PHPCS).
+    if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'devenia_replace_' . $attachment_id ) ) {
+        return new WP_Error( 'nonce_failed', 'Security check failed.' );
+    }
+
+    // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- $_FILES cannot be sanitized with standard functions; we validate below.
+    if ( ! isset( $_FILES['replacement_file'] ) || empty( $_FILES['replacement_file']['tmp_name'] ) ) {
         return new WP_Error('no_file', 'No file uploaded.');
     }
 
+    // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- File upload array; validated via UPLOAD_ERR_OK and wp_check_filetype.
     $file = $_FILES['replacement_file'];
     if ($file['error'] !== UPLOAD_ERR_OK) {
         return new WP_Error('upload_error', 'Upload failed.');

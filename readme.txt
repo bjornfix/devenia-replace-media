@@ -4,14 +4,12 @@ Donate link: https://devenia.com/
 Tags: replace media, replace image, media library, elementor, cache busting
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 1.6
+Stable tag: 1.7
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Replace media files while keeping the same URL. Works everywhere: Media Library, Elementor, and more.
-
-For more information, visit [Devenia Replace Media](https://devenia.com/plugins/replace-media/).
+Replace media files while keeping the same URL. Works in Media Library, Elementor, and more.
 
 == Description ==
 
@@ -84,6 +82,11 @@ Try a hard refresh (Ctrl+Shift+R or Cmd+Shift+R). The plugin adds cache-busting 
 
 == Changelog ==
 
+= 1.7 =
+* Fixed nonce verification warnings in file upload handling
+* Improved input validation for WordPress.org Plugin Check compliance
+* Shortened short description to meet 150 character limit
+
 = 1.6 =
 * Uses WordPress Filesystem API for all file operations
 * Improved security and WordPress.org compatibility
@@ -111,6 +114,9 @@ Try a hard refresh (Ctrl+Shift+R or Cmd+Shift+R). The plugin adds cache-busting 
 * Preserve metadata and regenerate thumbnails
 
 == Upgrade Notice ==
+
+= 1.7 =
+Fixes Plugin Check warnings for WordPress.org compliance.
 
 = 1.6 =
 Uses WordPress Filesystem API for improved security and WordPress.org compatibility.
