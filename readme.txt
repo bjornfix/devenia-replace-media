@@ -1,10 +1,11 @@
 === Devenia Replace Media ===
 Contributors: basicus
-Donate link: https://devenia.com/
+Developer: Devenia
+Developer URI: https://devenia.com/
 Tags: replace media, replace image, media library, elementor, cache busting
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 1.7
+Stable tag: 1.7.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -44,7 +45,7 @@ When you replace an image, browsers may show the old cached version. This plugin
 
 == Installation ==
 
-1. Upload the `devenia-replace-media` folder to `/wp-content/plugins/`
+1. Upload the `replace-media` folder to `/wp-content/plugins/`
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. That's it! Look for "Replace File" links in your Media Library
 
@@ -81,6 +82,9 @@ Try a hard refresh (Ctrl+Shift+R or Cmd+Shift+R). The plugin adds cache-busting 
 3. Simple upload interface
 
 == Changelog ==
+
+= 1.7.1 =
+* Fixed text domain to match plugin slug
 
 = 1.7 =
 * Fixed nonce verification warnings in file upload handling

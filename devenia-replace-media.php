@@ -3,7 +3,7 @@
  * Plugin Name: Devenia Replace Media
  * Plugin URI: https://devenia.com/plugins/replace-media/
  * Description: Replace media files while keeping the same URL. Works in Media Library, Elementor gallery editor, and anywhere WordPress media is used. Preserves captions, alt text, and all metadata. Includes automatic cache busting.
- * Version: 1.7
+ * Version: 1.7.1
  * Requires at least: 5.0
  * Tested up to: 6.9
  * Requires PHP: 7.4
