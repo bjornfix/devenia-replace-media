@@ -61,15 +61,33 @@ When you replace a file:
 ## Changelog
 
 ### 1.7
-- Works in Elementor gallery editor
-- Better button styling
+- Fixed nonce verification warnings
+- Improved input validation for WordPress.org Plugin Check compliance
 
 ### 1.6
-- Automatic cache busting
-- Thumbnail regeneration
+- Uses WordPress Filesystem API for all file operations
+- Improved security and WordPress.org compatibility
+
+### 1.5
+- Added automatic cache busting - URLs include version parameter after replacement
+- Browsers automatically fetch new files without manual cache clearing
+
+### 1.4
+- Added support for Elementor gallery editor
+
+### 1.3
+- Changed script loading method for better compatibility
+
+### 1.2
+- Improved attachment ID detection in media modals
+
+### 1.1
+- Added JavaScript injection for media modal support
 
 ### 1.0
 - Initial release
+- Replace files from Media Library list view
+- Preserve metadata and regenerate thumbnails
 
 ## License
 
