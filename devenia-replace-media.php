@@ -3,7 +3,7 @@
  * Plugin Name: Devenia Replace Media
  * Plugin URI: https://devenia.com/plugins/replace-media/
  * Description: Replace media files while keeping the same URL. Works in Media Library, Elementor gallery editor, and anywhere WordPress media is used. Preserves captions, alt text, and all metadata. Includes automatic cache busting.
- * Version: 1.7.3
+ * Version: 1.7.4
  * Requires at least: 5.0
  * Tested up to: 6.9
  * Requires PHP: 7.4
@@ -165,6 +165,29 @@ function devenia_replace_media_row_action( $actions, $post ) {
     $url   = admin_url( 'upload.php?page=devenia-replace-media&_wpnonce=' . $nonce . '&attachment_id=' . $post->ID );
     $actions['replace'] = '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Replace File', 'devenia-replace-media' ) . '</a>';
     return $actions;
+}
+
+// Add "Replace File" button on Edit Media screen
+add_action( 'attachment_submitbox_misc_actions', 'devenia_replace_media_edit_screen_button' );
+
+/**
+ * Add Replace File button on the Edit Media screen.
+ */
+function devenia_replace_media_edit_screen_button() {
+    global $post;
+    if ( ! $post || 'attachment' !== $post->post_type ) {
+        return;
+    }
+
+    $nonce = wp_create_nonce( 'devenia_replace_media_access' );
+    $url   = admin_url( 'upload.php?page=devenia-replace-media&_wpnonce=' . $nonce . '&attachment_id=' . $post->ID );
+    ?>
+    <div class="misc-pub-section">
+        <a href="<?php echo esc_url( $url ); ?>" class="button button-secondary">
+            <?php esc_html_e( 'Replace File', 'devenia-replace-media' ); ?>
+        </a>
+    </div>
+    <?php
 }
 
 // Add admin page (hidden from menu)
