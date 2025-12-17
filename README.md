@@ -60,6 +60,21 @@ When you replace a file:
 
 ## Changelog
 
+### 1.7.4
+- Added Replace File button on Edit Media screen
+
+### 1.7.3
+- Fixed: Use wp_add_inline_script() instead of raw script tags
+- Fixed: Added nonce verification for GET requests
+- Fixed: Improved file upload validation
+- Added: User capability checks
+
+### 1.7.2
+- Changed slug to devenia-replace-media (WordPress.org requirement)
+
+### 1.7.1
+- Fixed text domain to match plugin slug
+
 ### 1.7
 - Fixed nonce verification warnings
 - Improved input validation for WordPress.org Plugin Check compliance
